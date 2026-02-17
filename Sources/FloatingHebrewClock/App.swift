@@ -13,7 +13,7 @@ struct FloatingHebrewClockApp: App {
 }
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    private var panel: NSPanel?
+    private var panel: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
@@ -27,17 +27,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         hosting.wantsLayer = true
         hosting.layer?.backgroundColor = NSColor.clear.cgColor
 
-        let panel = NSPanel(
+        let panel = NSWindow(
             contentRect: NSRect(origin: .zero, size: initialSize),
-            styleMask: [.titled, .nonactivatingPanel, .fullSizeContentView, .resizable],
+            styleMask: [.titled, .fullSizeContentView, .resizable],
             backing: .buffered,
             defer: false
         )
 
         panel.center()
-        panel.isFloatingPanel = true
         panel.level = .floating
-        panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .ignoresCycle]
+        panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         panel.titleVisibility = .hidden
         panel.titlebarAppearsTransparent = true
         panel.standardWindowButton(.closeButton)?.isHidden = true
@@ -47,12 +46,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         panel.isOpaque = false
         panel.backgroundColor = .clear
         panel.ignoresMouseEvents = false
-        panel.hidesOnDeactivate = false
         panel.isMovable = true
         panel.isMovableByWindowBackground = true
         panel.minSize = NSSize(width: 280, height: 120)
         panel.contentView = hosting
         panel.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
 
         self.panel = panel
     }

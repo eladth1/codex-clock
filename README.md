@@ -129,12 +129,12 @@ In `App.swift`, you can change:
 
 ## Notes about Hebrew phrasing
 
-Hebrew time phrasing has many stylistic variants. Current implementation uses a minimal/slangy one-line format **with נִקּוּד**, without "השעה", and without an extra connector between hour and minutes (for example `אַחַת עֶשְׂרֵה אַרְבָּעִים וְאַחַת בַּבֹּקֶר`):
+Hebrew time phrasing has many stylistic variants. Current implementation uses a minimal/slangy one-line format **with נִקּוּד**, without "השעה", and with connector rules that match spoken style:
 
-- `שְׁמוֹנֶה וְחָמֵשׁ בַּבֹּקֶר`
-- `תֵּשַׁע וְאַחַת עֶשְׂרֵה בַּבֹּקֶר`
-- `שְׁתֵּים עֶשְׂרֵה בַּצָּהֳרַיִים`
-- `שֵׁשׁ בָּעֶרֶב`
-- `חֲצוֹת` (exactly at `00:00`)
+- For `:15` use `וָרֶבַע` (example: `שְׁתֵּים עֶשְׂרֵה וָרֶבַע בַּצָּהֳרַיִים`)
+- For `:30` use `וָחֵצִי` (example: `שְׁתֵּים עֶשְׂרֵה וָחֵצִי בַּצָּהֳרַיִים`)
+- For exact tens (`:20`, `:40`, etc.) no connector between hour and minute phrase (example: `שְׁתֵּים עֶשְׂרֵה עֶשְׂרִים בַּצָּהֳרַיִים`)
+- Otherwise use `ו` before the minute phrase (example: `שְׁתֵּים עֶשְׂרֵה וְשָׁלוֹשׁ עֶשְׂרֵה בַּצָּהֳרַיִים`)
+- `חֲצוֹת` exactly at `00:00`
 
 You can tweak day-part ranges and wording in `HebrewTimeFormatter.words(from:)`.

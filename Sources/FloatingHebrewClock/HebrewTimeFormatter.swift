@@ -60,7 +60,16 @@ enum HebrewTimeFormatter {
             return "\(hour) \(period)"
         }
 
-        return "\(hour) \(minuteInWords(minute)) \(period)"
+        if minute == 15 {
+            return "\(hour) וָרֶבַע \(period)"
+        }
+
+        if minute == 30 {
+            return "\(hour) וָחֵצִי \(period)"
+        }
+
+        let connector = minute % 10 == 0 ? "" : "ו"
+        return "\(hour) \(connector)\(minuteInWords(minute)) \(period)"
     }
 
     static func digital(from date: Date) -> String {
