@@ -129,12 +129,12 @@ In `App.swift`, you can change:
 
 ## Notes about Hebrew phrasing
 
-Hebrew time phrasing has many stylistic variants. Current implementation uses a minimal/slangy line without "השעה", for example:
+Hebrew time phrasing has many stylistic variants. Current implementation uses a minimal/slangy one-line format **with נִקּוּד**, without "השעה", and without an extra connector between hour and minutes (for example `אַחַת עֶשְׂרֵה אַרְבָּעִים וְאַחַת בַּבֹּקֶר`):
 
-- `שמונה וחמישה בבוקר`
-- `תשע ואחת עשרה בבוקר`
-- `שתים עשרה בצהריים`
-- `שש בערב`
-- `חצות` (exactly at `00:00`)
+- `שְׁמוֹנֶה וְחָמֵשׁ בַּבֹּקֶר`
+- `תֵּשַׁע וְאַחַת עֶשְׂרֵה בַּבֹּקֶר`
+- `שְׁתֵּים עֶשְׂרֵה בַּצָּהֳרַיִים`
+- `שֵׁשׁ בָּעֶרֶב`
+- `חֲצוֹת` (exactly at `00:00`)
 
 You can tweak day-part ranges and wording in `HebrewTimeFormatter.words(from:)`.

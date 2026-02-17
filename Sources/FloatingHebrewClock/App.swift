@@ -29,7 +29,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
         let panel = NSPanel(
             contentRect: NSRect(origin: .zero, size: initialSize),
-            styleMask: [.borderless, .nonactivatingPanel, .resizable],
+            styleMask: [.titled, .nonactivatingPanel, .fullSizeContentView, .resizable],
             backing: .buffered,
             defer: false
         )
@@ -38,6 +38,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         panel.isFloatingPanel = true
         panel.level = .floating
         panel.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .ignoresCycle]
+        panel.titleVisibility = .hidden
+        panel.titlebarAppearsTransparent = true
+        panel.standardWindowButton(.closeButton)?.isHidden = true
+        panel.standardWindowButton(.miniaturizeButton)?.isHidden = true
+        panel.standardWindowButton(.zoomButton)?.isHidden = true
         panel.hasShadow = false
         panel.isOpaque = false
         panel.backgroundColor = .clear
