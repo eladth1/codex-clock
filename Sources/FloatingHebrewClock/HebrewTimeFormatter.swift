@@ -57,7 +57,7 @@ enum HebrewTimeFormatter {
         let period = dayPart(for: hour24)
 
         if minute == 0 {
-            return "\(hour) \(period)"
+            return fullHourPhrase(hour: hour, period: period)
         }
 
         if minute == 15 {
@@ -77,6 +77,11 @@ enum HebrewTimeFormatter {
         formatter.locale = Locale(identifier: "he_IL")
         formatter.dateFormat = "HH:mm:ss"
         return formatter.string(from: date)
+    }
+
+
+    private static func fullHourPhrase(hour: String, period: String) -> String {
+        "\(hour) \(period)"
     }
 
     private static func dayPart(for hour24: Int) -> String {

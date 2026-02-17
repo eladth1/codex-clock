@@ -135,6 +135,7 @@ Hebrew time phrasing has many stylistic variants. Current implementation uses a 
 - For `:30` use `וָחֵצִי` (example: `שְׁתֵּים עֶשְׂרֵה וָחֵצִי בַּצָּהֳרַיִים`)
 - For exact tens (`:20`, `:40`, etc.) no connector between hour and minute phrase (example: `שְׁתֵּים עֶשְׂרֵה עֶשְׂרִים בַּצָּהֳרַיִים`)
 - Otherwise use `ו` before the minute phrase (example: `שְׁתֵּים עֶשְׂרֵה וְשָׁלוֹשׁ עֶשְׂרֵה בַּצָּהֳרַיִים`)
+- Full hours always render as `<hour> <period>` (examples: `שֵׁשׁ בָּעֶרֶב`, `אַחַת עֶשְׂרֵה בַּבֹּקֶר`)
 - `חֲצוֹת` exactly at `00:00`
 
 You can tweak day-part ranges and wording in `HebrewTimeFormatter.words(from:)`.
